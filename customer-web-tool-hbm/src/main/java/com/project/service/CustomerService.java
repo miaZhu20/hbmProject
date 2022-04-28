@@ -1,10 +1,15 @@
 package com.project.service;
 
+
+
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import com.project.model.Customer;
 
@@ -25,10 +30,24 @@ public class CustomerService {
 			Transaction txn = session.beginTransaction();
 
 			session.persist(customer);
+			txn.commit();
+			session.close();
+			
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	public List<Customer> viewAll(){
+		List<Customer> list=null;
+		try {
+			Session session = sessionFactory.openSession();
+			Query query = session.createQuery("from Customer");
+			list = query.list();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return list;
 	}
 }

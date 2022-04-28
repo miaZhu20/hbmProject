@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "customers")
 public class Customer {
 	@Id
+	@Column(name = "cust_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
@@ -22,6 +23,9 @@ public class Customer {
 
 	@Column
 	private int age;
+	public Customer(){
+		
+	}
 
 	public Customer(String firstname, String lastname, int age) {
 
