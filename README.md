@@ -7,6 +7,7 @@ This project is enables user to create, update, view and delete data records wit
 Project is created with:
 * JDK version: 1.8
 * Apache Tomcat: 8.5
+
 Dependencies:
 * hibernate-core version: 5.4.32.Final
 * mysql-connector-java version: 8.0.28
