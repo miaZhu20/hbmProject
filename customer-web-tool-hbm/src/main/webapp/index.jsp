@@ -19,6 +19,7 @@
 	<%
 	List<Customer> list = service.viewAll();
 	%>
+	<a href="registerForm.jsp"><img src="images/add-new (1).png" /></a>
 	<table class="table table-bordered table-striped table-hover">
 		<tr>
 			<th>ID</th>
@@ -35,15 +36,14 @@
 			<td><%=customer.getLastname()%></td>
 			<td><%=customer.getAge()%></td>
 			<td><a class="btn btn-primary"
-				href="update.jsp?id=<%=customer.getId()%>"><img
-					src="images/add-new (1).png" /></a></td>
+				href="update.jsp?id=<%=customer.getId()%>">Update</a></td>
 			<td><a class="btn btn-warning"
-				href="delete.jsp?id=<%=customer.getId()%>">Delete</a></td>
+				href="deleteCustomer.jsp?id=<%=customer.getId()%>">Delete</a></td>
 		</tr>
 		<%
 		}
 		%>
 	</table>
-	<a href="registerForm.jsp"><img src="images/add-new (1).png" /></a>
+	
 </body>
 </html>

@@ -39,6 +39,21 @@ public class CustomerService {
 		}
 		return false;
 	}
+	public boolean deleteCustomer(Customer customer) {
+		try {
+			Session session = sessionFactory.openSession();
+			Transaction txn = session.beginTransaction();
+			
+			session.delete(customer);
+			txn.commit();
+			session.close();
+			
+			return true;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	public List<Customer> viewAll(){
 		List<Customer> list=null;
 		try {
